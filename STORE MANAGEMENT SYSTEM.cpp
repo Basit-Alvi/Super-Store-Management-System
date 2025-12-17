@@ -19,14 +19,36 @@ void displayProducts();
 void searchProduct();
 void purchaseProduct();
 void mainMenu();
+void deleteProduct();
+bool isIdExists(int id);
+
+bool isIdExists(int id) {
+    for (int i = 0; i < productCount; i++) {
+        if (products[i].id == id) {
+            return true; // ID already exists
+        }
+    }
+    return false; // ID is unique
+}
 
 /* ---------- ADD PRODUCT ---------- */
 void addProduct() {
+    int id;
+
     cout << "\nEnter Product ID: ";
-    cin >> products[productCount].id;
+    cin >> id;
+
+    if (isIdExists(id)) {
+        cout << "\n? Product ID already exists! Use a unique ID.\n";
+        return;
+    }
+
+    products[productCount].id = id;
+
+    cin.ignore();
 
     cout << "Enter Product Name: ";
-    cin >> products[productCount].name;
+    cin.getline(products[productCount].name, 30);
 
     cout << "Enter Quantity: ";
     cin >> products[productCount].quantity;
@@ -35,7 +57,29 @@ void addProduct() {
     cin >> products[productCount].price;
 
     productCount++;
-    cout << "\nProduct added successfully!\n";
+    cout << "\n? Product added successfully!\n";
+}
+
+void deleteProduct() {
+    int id;
+    cout << "\nEnter Product ID to delete: ";
+    cin >> id;
+
+    for (int i = 0; i < productCount; i++) {
+        if (products[i].id == id) {
+
+            // Shift products left
+            for (int j = i; j < productCount - 1; j++) {
+                products[j] = products[j + 1];
+            }
+
+            productCount--;
+            cout << "\n? Product deleted successfully!\n";
+            return;
+        }
+    }
+
+    cout << "\n? Product not found!\n";
 }
 
 /* ---------- DISPLAY PRODUCTS ---------- */
@@ -58,12 +102,12 @@ void displayProducts() {
 
 /* ---------- SEARCH PRODUCT ---------- */
 void searchProduct() {
-    int searchId;
-    cout << "\nEnter Product ID to search: ";
-    cin >> searchId;
+    string searchName;
+    cout << "\nEnter Product Name to search: ";
+    cin >> searchName;
 
     for (int i = 0; i < productCount; i++) {
-        if (products[i].id == searchId) {
+        if (products[i].name == searchName) {
             cout << "\nProduct Found!\n";
             cout << "Name: " << products[i].name << endl;
             cout << "Quantity: " << products[i].quantity << endl;
@@ -116,7 +160,8 @@ void mainMenu() {
         cout << "2. Display Products\n";
         cout << "3. Search Product\n";
         cout << "4. Purchase Product\n";
-        cout << "5. Exit\n";
+        cout << "5. Delete Product\n";
+        cout << "6. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -125,15 +170,31 @@ void mainMenu() {
             case 2: displayProducts(); break;
             case 3: searchProduct(); break;
             case 4: purchaseProduct(); break;
-            case 5: cout << "\nThank you! Exiting program.\n"; break;
+            case 5: deleteProduct(); break;
+            case 6: cout << "\nThank you! Exiting program.\n"; break;
             default: cout << "\nInvalid choice! Try again.\n";
         }
-    } while (choice != 5);
+    } while (choice != 6);
 }
 
 /* ---------- MAIN FUNCTION ---------- */
 int main() {
+	
     mainMenu();
     return 0;
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
