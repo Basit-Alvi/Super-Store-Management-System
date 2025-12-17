@@ -1,35 +1,29 @@
 #include <iostream>
 using namespace std;
 
-/* ---------- STRUCTURE ---------- */
+/* ---------- STRUCTURE FOR PRODUCT ---------- */
 struct Product {
     int id;
-    char name[30];
+    char name[30]; /*TO STORE PRODUCT NAME UPTO 30 CHARACTER------*/
     int quantity;
     float price;
 };
 
 /* ---------- GLOBAL VARIABLES ---------- */
-Product products[100];
-int productCount = 0;
+Product products[100];  /*TO STORE 100 PRODUCT A TIME-----*/
+
+int productCount = 0;   /*USED TO DISPLAY TOTAL PRODUCT ON SCREEN----*/
 
 /* ---------- FUNCTION DECLARATIONS ---------- */
-void addProduct();
-void displayProducts();
-void searchProduct();
-void purchaseProduct();
-void mainMenu();
-void deleteProduct();
-bool isIdExists(int id);
+void addProduct();     /* TO ADD PRODUCTS----*/
+void displayProducts();/* TO DISPLAY TOTAL PRODUCTS----*/
+void searchProduct();  /*TO SEARCH AVAILABILITY OF PRODUCT---*/
+void purchaseProduct();/*TO PURCHASE PRODUCT---*/
+void mainMenu();       /*TO DISPLAY MENU---*/
+void deleteProduct();  /*TO DELETE PRODUCT---*/
+bool isIdExists(int id);/*TO NOT ADD PRODUCT WITH SAME ID---*/
 
-bool isIdExists(int id) {
-    for (int i = 0; i < productCount; i++) {
-        if (products[i].id == id) {
-            return true; // ID already exists
-        }
-    }
-    return false; // ID is unique
-}
+
 
 /* ---------- ADD PRODUCT ---------- */
 void addProduct() {
@@ -44,20 +38,29 @@ void addProduct() {
     }
 
     products[productCount].id = id;
-
-    cin.ignore();
+	    cin.ignore();
 
     cout << "Enter Product Name: ";
     cin.getline(products[productCount].name, 30);
 
-    cout << "Enter Quantity: ";
+    cout << "\n Enter Quantity: ";
     cin >> products[productCount].quantity;
 
     cout << "Enter Price: ";
     cin >> products[productCount].price;
 
-    productCount++;
+   productCount++;
     cout << "\n? Product added successfully!\n";
+}
+
+/*TO CHECK ID IS NOT SAME FOR ANY PRODUCT---*/
+bool isIdExists(int id) {
+    for (int i = 0; i < productCount; i++)/*IF i IS LESS THAN THE TOTAL NUMBER OF PRODUCT--*/ {
+        if (products[i].id == id) {
+            return true; // ID already exists
+        }
+    }
+    return false; // ID is unique
 }
 
 void deleteProduct() {
@@ -102,7 +105,7 @@ void displayProducts() {
 
 /* ---------- SEARCH PRODUCT ---------- */
 void searchProduct() {
-    string searchName;
+    string  searchName;
     cout << "\nEnter Product Name to search: ";
     cin >> searchName;
 
@@ -184,17 +187,5 @@ int main() {
     return 0;
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
