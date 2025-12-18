@@ -9,6 +9,8 @@ struct Product {
     float price;
 };
 
+
+
 /* ---------- GLOBAL VARIABLES ---------- */
 Product products[100];  /*TO STORE 100 PRODUCT A TIME-----*/
 
