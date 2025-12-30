@@ -11,7 +11,7 @@ struct Product {
 
 
 
-/* ---------- GLOBAL VARIABLES ---------- */
+/* ---------- GLOBAL VARIABLE ---------- */
 Product products[100];  /*TO STORE 100 PRODUCT A TIME-----*/
 
 int productCount = 0;   /*USED TO DISPLAY TOTAL PRODUCT ON SCREEN----*/
