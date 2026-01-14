@@ -26,7 +26,7 @@ bool isIdExists(int id);
 void saveToFile();
 void loadFromFile();
 
-/* ---------- ADD PRODUCT ---------- */
+/* ---------- ADD PRODUCT Function ---------- */
 void addProduct() {
     int id;
 
