@@ -3,7 +3,7 @@
 #include <string>       // For string
 using namespace std;
 
-/* ---------- STRUCTURE FOR PRODUCT ---------- */
+/* ---------- STRUCTURE FOR PRODUCT ----------- */
 struct Product {
     int id;             // Product ID
     string name;        // Product Name
