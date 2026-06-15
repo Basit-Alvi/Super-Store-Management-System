@@ -1,6 +1,6 @@
  #include <iostream>     // For input/output
 #include <fstream>      // For file handling
-#include <string>       // For string
+#include <string>       // For string.
 using namespace std;
 
 /* ---------- STRUCTURE FOR PRODUCT ----------- */
