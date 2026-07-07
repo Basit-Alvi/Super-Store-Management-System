@@ -9,7 +9,7 @@ struct Product {
     int id;             // Product ID.
     string name;        // Product Name
     int quantity;       // Quantity
-    float price;        // Price
+    float price;        // Price .
 };
 
 /* ---------- GLOBAL VARIABLES ---------- */
