@@ -16,7 +16,7 @@ struct Product {
 Product products[100];     // Store up to 100 products
 int productCount = 0;      // Count of products
 
-/* ---------- FUNCTION DECLARATIONS ---------- */
+/* ---------- FUNCTION DECLARATIONS ---------- */.
 void addProduct();
 void displayProducts();
 void searchProduct();
