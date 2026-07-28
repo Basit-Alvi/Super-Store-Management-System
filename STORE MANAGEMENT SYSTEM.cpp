@@ -1,4 +1,4 @@
- #include <iostream>     // For input/output.
+ #include <iostream>     // For input/output..
 #include <fstream>      // For file. handling .
 #include <string>       // For string.
 #include<algorithm>
