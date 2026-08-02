@@ -12,7 +12,7 @@ struct Product {
     float price;        // Price .
 };
 
-/* -------.--- GLOBAL VARIABLES ---------- */
+/* -------.--- GLOBAL VARIABLES ----------. */
 Product products[100];     // Store up to 100 products
 int productCount = 0;      // Count of products
 
