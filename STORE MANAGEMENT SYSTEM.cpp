@@ -210,7 +210,7 @@ void saveToFile() {
     file.close();
 }
 
-/* ---------- LOAD FROM FILE ---------- */
+/* ---------- LOAD FROM FILE ----------. */
 void loadFromFile() {
     ifstream file("products.txt");
 
